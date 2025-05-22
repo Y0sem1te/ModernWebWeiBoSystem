@@ -1,0 +1,13 @@
+:root[theme='light']{  /*白天主题*/
+    --bgColor:#fff;  /*白天大的背景颜色*/ 
+    --textColor:#000;  /*白天文本颜色*/ 
+    --titleColor:blue;  /*白天标题颜色*/ 
+    --main-grd:#f4f4f4;  /*白天主要背景颜色*/
+} 
+ 
+:root[theme='dark']{   /*晚上主题*/
+    --bgColor:#3330306d;   /*晚上大的背景颜色*/
+    --textColor:#fff;  /*晚上文本颜色*/
+    --titleColor:yellow;  /*晚上标题颜色*/ 
+    --main-grd:#000;  /*晚上主要背景颜色*/
+}
