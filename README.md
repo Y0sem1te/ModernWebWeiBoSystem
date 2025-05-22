@@ -5,7 +5,8 @@
   登录界面：
 
  ![image](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img1.png)
-  注册界面（含前端检查）：在前端检测用户输入的用户密码是否符合安全要求。
+
+注册界面（含前端检查）：在前端检测用户输入的用户密码是否符合安全要求。
 
  ![image](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img2.png)
 
