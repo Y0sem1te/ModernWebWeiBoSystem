@@ -27,7 +27,6 @@
 
 发表完成之后所有登录的用户可以看到你发表的博客。
 
-如下：
  ![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img6.png)
 
 ### **4.**  **点赞和评论**
