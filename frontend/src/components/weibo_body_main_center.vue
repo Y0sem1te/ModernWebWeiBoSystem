@@ -13,10 +13,20 @@
                         <img :src="item" alt="Preview" class="preview-image" v-for="item in previewUrl" :key="item"
                             @click="removeImage(item)" />
                     </div>
+                    <div v-if="selectedVideo" class="video-preview">
+                        <div class="video-name">
+                            <span>视频: {{ videoName }}</span>
+                            <button class="remove-video" @click="removeVideo">×</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="post-part-tot">
                 <div class="interactive-image">
+                    <div class="add_video" @click="addVideo">
+                        <svg t="1748399351590" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2208" width="32" height="32"><path d="M861.44 246.8864a68.266667 68.266667 0 0 1 93.422933 58.965333l0.136534 4.3008 0.477866 232.5504a68.266667 68.266667 0 0 1-89.361066 65.0752l-4.061867-1.467733-157.832533-62.583467a34.133333 34.133333 0 0 1 22.647466-64.341333l2.5088 0.887467 157.832534 62.5664-0.477867-232.533334-157.2864 62.737067a34.133333 34.133333 0 0 1-27.733333-62.327467l2.440533-1.092266 157.2864-62.737067z" fill="#d81e06" p-id="2209"></path><path d="M682.666667 119.466667H136.533333a68.266667 68.266667 0 0 0-68.266666 68.266666v477.866667a68.266667 68.266667 0 0 0 68.266666 68.266667h546.133334a68.266667 68.266667 0 0 0 68.266666-68.266667V187.733333a68.266667 68.266667 0 0 0-68.266666-68.266666zM136.533333 187.733333h546.133334v477.866667H136.533333V187.733333z" fill="#d81e06" p-id="2210"></path><path d="M242.5344 701.5424a34.133333 34.133333 0 0 1 62.1568 28.091733l-1.092267 2.423467-85.333333 170.666667a34.133333 34.133333 0 0 1-62.1568-28.091734l1.092267-2.423466 85.333333-170.666667zM530.875733 686.267733a34.133333 34.133333 0 0 1 44.509867 12.919467l1.28 2.3552 85.333333 170.666667a34.133333 34.133333 0 0 1-59.784533 32.8704l-1.28-2.3552-85.333333-170.666667a34.133333 34.133333 0 0 1 15.274666-45.789867z" fill="#d81e06" p-id="2211"></path><path d="M512 529.066667v34.133333a34.133333 34.133333 0 0 1-34.133333 34.133333H238.933333a34.133333 34.133333 0 0 1-34.133333-34.133333v-34.133333h307.2z" fill="#d81e06" p-id="2212"></path></svg>
+                    </div>
+                    <input type="file" ref="fileInput1" accept="video/*" style="display: none;" @change="handleVideoUpload">
                     <!--其实用的是input type=“file”，伪装一下-->
                     <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange($event)"
                         style="display: none;" />
@@ -104,6 +114,10 @@
                             <div class="modify_pic">
                                 <img :src="item" v-for="item in weibo.photos" :key="item">
                             </div>
+                        </div>
+                        <!---这里可以放视频-->
+                        <div>
+                            <video width="735" v-if="weibo.video != 'http://127.0.0.1:8088/images/'" controls :src="weibo.video" style="margin-top:5px;"></video>
                         </div>
                         <div class="user_comment">
                             <div class="comments" @click="cshowcomment(weibo.id)">
@@ -212,6 +226,8 @@ export default {
             previewUrl: [],
             userphoto: require("@/assets/gXOn48bPe6CXLpGz-generated_image.jpg"),
             picture: require("@/assets/gXOn48bPe6CXLpGz-generated_image.jpg"),
+            selectedVideo: null,
+            videoName: '',
         };
     },
     methods: {
@@ -290,6 +306,9 @@ export default {
                 this.commentsMap.set(weiboid, response.data);
             })
         },
+        addVideo(){
+            this.$refs.fileInput1.click();
+        },
         triggerFileInput() {
             this.$refs.fileInput.click();
         },
@@ -306,9 +325,28 @@ export default {
             //console.log(this.previewUrl);
             this.$refs.fileInput.value = '';
         },
+        handleVideoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Check if file is video
+            if (!file.type.startsWith('video/')) {
+                alert('请上传视频文件！');
+                return;
+            }
+            
+            this.selectedVideo = file;
+            this.videoName = file.name;
+            this.$refs.fileInput1.value = '';
+        },
+        removeVideo() {
+            this.selectedVideo = null;
+            this.videoName = '';
+            this.$refs.fileInput1.value = '';
+        },
         post_weibo() {
             // photo: this.previewUrl; text: content;
-            if (this.previewUrl.length == 0 && this.content == '') {
+            if (this.previewUrl.length == 0 && this.content == '' && !this.selectedVideo) {
                 alert("不能发送空微博哦......");
                 return;
             }
@@ -321,16 +359,23 @@ export default {
                     formData.append('images[]', file);
                 });
             }
+            if(this.selectedVideo) {
+                formData.append('video', this.selectedVideo);
+            }
             axios.post("http://127.0.0.1:8088/upload_weibo", formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             }).then((response) => {
                 alert("成功上传");
-                console.log("上传了" + response + "个图片文件");
+                console.log("上传了" + response.data + "个文件");
+                // Clear form
+                this.content = '';
+                this.selectedFile = [];
+                this.previewUrl = [];
+                this.selectedVideo = null;
+                this.videoName = '';
+                this.$refs.fileInput.value = '';
+                this.$refs.fileInput1.value = '';
             })
-            this.content = '';
-            this.selectedFile = [];
-            this.previewUrl = [];
-            this.$refs.fileInput.value = '';
         },
         radomly_fetch() {
             this.loading = true;
@@ -361,7 +406,7 @@ export default {
     mounted() {
         this.radomly_fetch();
         const photo = sessionStorage.getItem('photo');
-        if (photo) this.userphoto = photo;
+        if(photo) this.userphoto = photo;
     }
 };
 </script>
@@ -483,17 +528,19 @@ export default {
 
 .post-part {
     display: flex;
+    width: 100%;
     gap: 10px;
     padding: 10px;
-    justify-content: space-around;
+    justify-content: right;
     align-items: center;
 }
 
 .post-part-tot {
+    width: 80%;
     display: flex;
     gap: 10px;
     padding: 10px;
-    justify-content: space-around;
+    justify-content: left;
     align-items: center;
 }
 
@@ -723,4 +770,34 @@ export default {
 .modify_pic img {
     border-radius: 4px;
 }
+
+.video-preview {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--bgColor);
+    border-radius: 4px;
+    border: 1px solid #e8e8e8;
+}
+
+.video-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--textColor);
+    font-size: 14px;
+}
+
+.remove-video {
+    background: none;
+    border: none;
+    color: #ff4d4f;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.remove-video:hover {
+    color: #ff7875;
+}
+
 </style>

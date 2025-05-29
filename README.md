@@ -48,3 +48,23 @@
 ### **6.**  **关注功能实现**
 
 在上面已经展示了用户的个人主页，我们注意到里面是没有关注按钮的，那是因为我们点开的是自己的主页，因此隐藏了关注按钮。点开别人的主页时会出现关注按钮，点击变成已关注，同时目标用户个人主页粉丝数加一，当前用户关注数加一。
+
+### **7.上传视频功能（新增：可以上传视频）**
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img10.png)
+
+用户可以自由上传视频
+
+### 8.实现关注列表
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img11.png)
+
+点开谁的主页对应展示谁的关注列表也实现了。
+
+### 9.查看博客和有删除自己博客的权限
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img12.png)
+
+实现了点开谁的主页就能看到谁上传的博客，同时可以删除自己的。
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img13.png)

@@ -21,7 +21,7 @@ mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 
 3. 重构maven项目:
 
-![image](https://github.com/Y0sem1te/ModernWebWeiBoSystem/tree/main/backend/readme_file/img1.png)
+![image](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/backend/readme_file/img1.png)
 
 4. 搭建数据库：
 
