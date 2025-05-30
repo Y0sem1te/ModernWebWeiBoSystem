@@ -49,7 +49,7 @@
 
 在上面已经展示了用户的个人主页，我们注意到里面是没有关注按钮的，那是因为我们点开的是自己的主页，因此隐藏了关注按钮。点开别人的主页时会出现关注按钮，点击变成已关注，同时目标用户个人主页粉丝数加一，当前用户关注数加一。
 
-### **7.上传视频功能（新增：可以上传视频）**
+### **7.上传视频功能**
 
 ![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img10.png)
 
@@ -68,3 +68,17 @@
 实现了点开谁的主页就能看到谁上传的博客，同时可以删除自己的。
 
 ![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img13.png)
+
+### 10.搜索及翻页功能
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img15.png)
+
+搜索框内可以搜索用户名，会将对应用户名的所有博客都放到原本展示博客的地方。输入空则恢复全部人的博客。
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img16.png)
+
+### 11.管理员权限
+
+登录管理员用户（用户名root，密码root），可以删除任意博客，点进主页可以对刚发布的博客进行审核，只有审核通过的博客才会展示在用户界面。
+
+![img](https://github.com/Y0sem1te/ModernWebWeiBoSystem/blob/main/show_img/img17.png)

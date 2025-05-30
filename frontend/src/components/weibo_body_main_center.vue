@@ -24,9 +24,24 @@
             <div class="post-part-tot">
                 <div class="interactive-image">
                     <div class="add_video" @click="addVideo">
-                        <svg t="1748399351590" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2208" width="32" height="32"><path d="M861.44 246.8864a68.266667 68.266667 0 0 1 93.422933 58.965333l0.136534 4.3008 0.477866 232.5504a68.266667 68.266667 0 0 1-89.361066 65.0752l-4.061867-1.467733-157.832533-62.583467a34.133333 34.133333 0 0 1 22.647466-64.341333l2.5088 0.887467 157.832534 62.5664-0.477867-232.533334-157.2864 62.737067a34.133333 34.133333 0 0 1-27.733333-62.327467l2.440533-1.092266 157.2864-62.737067z" fill="#d81e06" p-id="2209"></path><path d="M682.666667 119.466667H136.533333a68.266667 68.266667 0 0 0-68.266666 68.266666v477.866667a68.266667 68.266667 0 0 0 68.266666 68.266667h546.133334a68.266667 68.266667 0 0 0 68.266666-68.266667V187.733333a68.266667 68.266667 0 0 0-68.266666-68.266666zM136.533333 187.733333h546.133334v477.866667H136.533333V187.733333z" fill="#d81e06" p-id="2210"></path><path d="M242.5344 701.5424a34.133333 34.133333 0 0 1 62.1568 28.091733l-1.092267 2.423467-85.333333 170.666667a34.133333 34.133333 0 0 1-62.1568-28.091734l1.092267-2.423466 85.333333-170.666667zM530.875733 686.267733a34.133333 34.133333 0 0 1 44.509867 12.919467l1.28 2.3552 85.333333 170.666667a34.133333 34.133333 0 0 1-59.784533 32.8704l-1.28-2.3552-85.333333-170.666667a34.133333 34.133333 0 0 1 15.274666-45.789867z" fill="#d81e06" p-id="2211"></path><path d="M512 529.066667v34.133333a34.133333 34.133333 0 0 1-34.133333 34.133333H238.933333a34.133333 34.133333 0 0 1-34.133333-34.133333v-34.133333h307.2z" fill="#d81e06" p-id="2212"></path></svg>
+                        <svg t="1748399351590" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="2208" width="32" height="32">
+                            <path
+                                d="M861.44 246.8864a68.266667 68.266667 0 0 1 93.422933 58.965333l0.136534 4.3008 0.477866 232.5504a68.266667 68.266667 0 0 1-89.361066 65.0752l-4.061867-1.467733-157.832533-62.583467a34.133333 34.133333 0 0 1 22.647466-64.341333l2.5088 0.887467 157.832534 62.5664-0.477867-232.533334-157.2864 62.737067a34.133333 34.133333 0 0 1-27.733333-62.327467l2.440533-1.092266 157.2864-62.737067z"
+                                fill="#d81e06" p-id="2209"></path>
+                            <path
+                                d="M682.666667 119.466667H136.533333a68.266667 68.266667 0 0 0-68.266666 68.266666v477.866667a68.266667 68.266667 0 0 0 68.266666 68.266667h546.133334a68.266667 68.266667 0 0 0 68.266666-68.266667V187.733333a68.266667 68.266667 0 0 0-68.266666-68.266666zM136.533333 187.733333h546.133334v477.866667H136.533333V187.733333z"
+                                fill="#d81e06" p-id="2210"></path>
+                            <path
+                                d="M242.5344 701.5424a34.133333 34.133333 0 0 1 62.1568 28.091733l-1.092267 2.423467-85.333333 170.666667a34.133333 34.133333 0 0 1-62.1568-28.091734l1.092267-2.423466 85.333333-170.666667zM530.875733 686.267733a34.133333 34.133333 0 0 1 44.509867 12.919467l1.28 2.3552 85.333333 170.666667a34.133333 34.133333 0 0 1-59.784533 32.8704l-1.28-2.3552-85.333333-170.666667a34.133333 34.133333 0 0 1 15.274666-45.789867z"
+                                fill="#d81e06" p-id="2211"></path>
+                            <path
+                                d="M512 529.066667v34.133333a34.133333 34.133333 0 0 1-34.133333 34.133333H238.933333a34.133333 34.133333 0 0 1-34.133333-34.133333v-34.133333h307.2z"
+                                fill="#d81e06" p-id="2212"></path>
+                        </svg>
                     </div>
-                    <input type="file" ref="fileInput1" accept="video/*" style="display: none;" @change="handleVideoUpload">
+                    <input type="file" ref="fileInput1" accept="video/*" style="display: none;"
+                        @change="handleVideoUpload">
                     <!--其实用的是input type=“file”，伪装一下-->
                     <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange($event)"
                         style="display: none;" />
@@ -91,7 +106,7 @@
             <div class="woo-box-item-inlineBlock"></div>
         </div>
         <div class="WeiBo-list">
-            <div class="WeiBo-item" v-for="weibo in weibos" :key="weibo.id">
+            <div class="WeiBo-item" v-for="weibo in pagesWeibo" :key="weibo.id">
                 <div class="justify-WeiBo-item">
                     <div class="show-item">
                         <div class="pic-describe" @click="showUser(weibo.uid)">
@@ -105,19 +120,22 @@
                             </span>
                             <div class="post-time">{{ weibo.time }}</div>
                         </div>
+                        <el-button type="primary" :icon="Delete" style="margin-left:30px;" v-if="checkDelete()"
+                            @click="delete_weibo(weibo.id)" />
                     </div>
                     <div class="user-content">
                         <div class="character">
                             {{ weibo.content }}
                         </div>
-                        <div class="user-attach-pic" v-if="weibo.photos[0]!='http://127.0.0.1:8088/images/'">
+                        <div class="user-attach-pic" v-if="weibo.photos[0] != 'http://127.0.0.1:8088/images/'">
                             <div class="modify_pic">
                                 <img :src="item" v-for="item in weibo.photos" :key="item">
                             </div>
                         </div>
                         <!---这里可以放视频-->
                         <div>
-                            <video width="735" v-if="weibo.video != 'http://127.0.0.1:8088/images/'" controls :src="weibo.video" style="margin-top:5px;"></video>
+                            <video width="735" v-if="weibo.video != 'http://127.0.0.1:8088/images/'" controls
+                                :src="weibo.video" style="margin-top:5px;"></video>
                         </div>
                         <div class="user_comment">
                             <div class="comments" @click="cshowcomment(weibo.id)">
@@ -202,6 +220,17 @@
                     </div>
                 </div>
             </div>
+            <!--here the button-->
+            <el-button-group style="display:flex;margin-top: 10px;">
+                <el-button type="primary" :icon="ArrowLeft" @click="leftA" :disabled="currentPage === 1">Previous
+                    Page</el-button>
+                <div style="margin-left:10px;margin-right:10px;">{{ this.currentPage }} / {{ this.totalPages }}</div>
+                <el-button type="primary" @click="rightA" :disabled="currentPage === totalPages">
+                    Next Page<el-icon class="el-icon--right">
+                        <ArrowRight />
+                    </el-icon>
+                </el-button>
+            </el-button-group>
         </div>
     </section>
 </template>
@@ -209,10 +238,19 @@
 <script>
 import axios from 'axios'
 import moment from 'moment'
+import {
+    ArrowLeft,
+    ArrowRight,
+    Delete,
+} from '@element-plus/icons-vue'
 export default {
+    props: ["received"],
     name: "weibo_body_main_center",
     data() {
         return {
+            ArrowLeft,
+            ArrowRight,
+            Delete,
             commentContent: '',
             if_show_comments: false,
             commentsMap: new Map(),
@@ -228,11 +266,34 @@ export default {
             picture: require("@/assets/gXOn48bPe6CXLpGz-generated_image.jpg"),
             selectedVideo: null,
             videoName: '',
+            currentPage: 1,
+            pagesize: 5,
         };
     },
+    watch: {
+        received(msg) {
+            if (msg === "") {
+                this.radomly_fetch()
+            } else {
+                axios.post("http://127.0.0.1:8088/purposely_fetch", { id: msg }).then(response => {
+                    this.weibos = response.data
+                })
+            }
+        }
+    },
     methods: {
-        showUser(uid){
-            axios.post("http://127.0.0.1:8088/homepage", {id: uid}).then(response=>{
+        leftA() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+            }
+        },
+        rightA() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+            }
+        },
+        showUser(uid) {
+            axios.post("http://127.0.0.1:8088/homepage", { id: uid }).then(response => {
                 console.log(response)
                 const params = {
                     id: response.data.id,
@@ -241,10 +302,10 @@ export default {
                     avatar: response.data.photo,
                     banner: response.data.banner,
                 }
-                this.$router.push({path: '/homepage', query: params});
+                this.$router.push({ path: '/homepage', query: params });
             })
         },
-        addHash(){
+        addHash() {
             this.content += '#';
         },
         postComment(weiboid) {
@@ -306,7 +367,7 @@ export default {
                 this.commentsMap.set(weiboid, response.data);
             })
         },
-        addVideo(){
+        addVideo() {
             this.$refs.fileInput1.click();
         },
         triggerFileInput() {
@@ -328,13 +389,13 @@ export default {
         handleVideoUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-            
+
             // Check if file is video
             if (!file.type.startsWith('video/')) {
                 alert('请上传视频文件！');
                 return;
             }
-            
+
             this.selectedVideo = file;
             this.videoName = file.name;
             this.$refs.fileInput1.value = '';
@@ -354,12 +415,12 @@ export default {
             formData.append('content', this.content);
             formData.append('uid', sessionStorage.getItem('username'));
             formData.append('time', moment().format('YYYY-MM-DD HH:mm'));
-            if(this.selectedFile.length > 0){
+            if (this.selectedFile.length > 0) {
                 this.selectedFile.forEach((file) => {
                     formData.append('images[]', file);
                 });
             }
-            if(this.selectedVideo) {
+            if (this.selectedVideo) {
                 formData.append('video', this.selectedVideo);
             }
             axios.post("http://127.0.0.1:8088/upload_weibo", formData, {
@@ -401,12 +462,33 @@ export default {
                 this.loading = false;
             }
         },
-
+        checkDelete() {
+            if (sessionStorage.getItem('username') === "root") { return true; }
+            return false;
+        },
+        delete_weibo(wid) {
+            axios.get("http://localhost:8088/delete_weibo", {
+                params: {
+                    id: wid
+                }
+            }).then((response) => {
+                alert(response.data);
+            })
+        },
+    },
+    computed: {
+        pagesWeibo() {
+            const start = (this.currentPage - 1) * this.pagesize;
+            return this.weibos.slice(start, start + this.pagesize)
+        },
+        totalPages() {
+            return Math.ceil(this.weibos.length / this.pagesize);
+        }
     },
     mounted() {
         this.radomly_fetch();
         const photo = sessionStorage.getItem('photo');
-        if(photo) this.userphoto = photo;
+        if (photo) this.userphoto = photo;
     }
 };
 </script>
@@ -799,5 +881,4 @@ export default {
 .remove-video:hover {
     color: #ff7875;
 }
-
 </style>
