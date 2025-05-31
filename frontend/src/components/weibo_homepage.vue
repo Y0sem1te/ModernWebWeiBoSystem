@@ -262,6 +262,7 @@
                           </div>
                         </div>
                         <div class="time">
+                          
                           <span>{{ comment.date }}</span>
                         </div>
                       </div>
